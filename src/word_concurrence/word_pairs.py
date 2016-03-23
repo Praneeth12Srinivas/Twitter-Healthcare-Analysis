@@ -32,13 +32,13 @@ def processTweets(tweetsPath,sw):
                 words = splitTweet(line)
                 if words is False: continue
                 for word in words:
-                    makePairs(wordPairs,words,trimWord(word))
+                    makePairs(wordPairs,words,trimWord(word,sw),sw)
         return wordPairs
     
-def makePairs(pairs, words, newWord):
+def makePairs(pairs, words, newWord, sw):
     lineKeys = []
     for word in words:
-        word = trimWord(word)
+        word = trimWord(word,sw)
         if not word or not newWord or word == newWord: continue
         sortedKey = sorted([newWord,word])
         pairKey = '-'.join(sortedKey)

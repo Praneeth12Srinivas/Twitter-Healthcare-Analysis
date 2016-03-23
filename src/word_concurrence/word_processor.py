@@ -12,8 +12,8 @@ def dumpAfinn(file):
         afinn[a[0]] = int(a[1])
     return afinn
 
-def trimWord(word):
-    if word is '' or word.isdigit() or len(word) <= 2: return False
+def trimWord(word,sw=[]):
+    if word is '' or word.isdigit() or len(word) <= 2 or word in sw: return False
     return word.encode('UTF-8')
     
 def splitTweet(string):
